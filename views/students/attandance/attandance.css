@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+
+*{
+    padding: 0px;
+    margin: 0px;
+}
+.mainblock{
+    /* border:2px solid red; */
+    margin: 0px;
+    padding: 0px;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    height: 100vh;
+
+}
+/* -----------------------------left hand side menu ------------------------------------------ */
+.mb-1{
+    /* border: 1px solid green; */
+    padding:20px;
+    box-sizing: border-box;
+    background: linear-gradient(to right, #77adffd5,#b6d3fec2,#b6d3fe7e);
+
+}
+.menu{
+    /* border: 2px solid purple; */
+    height: 100%;
+    border-radius: 30px;
+    box-sizing: border-box;
+    padding: 24px;
+    position: relative;
+    background-color: white;
+}
+.image{
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.uni-img{
+    /* border: 1px solid blue ; */
+    border-radius: 50%;
+    display: inline-block;
+    height: 110px;
+}
+                /* ------------------------------ -------------------- */
+.user{
+    margin: 17px 5px 10px 3px;
+    font-family: "Kanit", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+}
+            /* ----------------in left menu [collepse down details]-------------- */
+.collepse{
+    display: flex;
+    justify-content:flex-start;
+    align-items:center;
+    /* border: 2px solid orange; */
+    margin-bottom: 8px;
+    box-sizing: border-box;
+}
+.summary{
+    box-sizing: border-box;
+}
+.d-1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    box-sizing: border-box;
+}
+.s-1{
+    display: block;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size:1.2em;
+    text-decoration: none;
+    color: #04268d;
+}
+details > summary {
+    list-style: none; 
+}
+.collepse-a-1{
+    list-style: none;
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    margin-left: 30px;
+}
+.signout{
+    /* border: 2px solid rgb(231, 22, 57); */
+    position: absolute; 
+    bottom: 30px;
+    width: 100%;
+    left:0px;
+    right: 0px;
+    display: flex;
+    justify-content: center;
+}
+.btn-sign{
+    padding: 2px 15px 2px 15px;
+    border-radius: 8px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    background-color: rgb(15, 119, 189);
+    color: white;
+    border: none;
+}
+
+/* ---------------------------right hand side menu ------------------------------------------- */
+.mb-2{
+    /* border: 1px solid black; */
+    padding: 1px;
+    background: linear-gradient(to right,#b6d3fe7e,white,white);
+}
+.navigate{
+    /* border: 2px solid crimson; */
+    padding: 8px 0px 0px 32px;
+    margin-top: 25px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right,#b6d3fe15,rgba(255, 255, 255, 0.514),rgba(255, 255, 255, 0.747),white);
+    border-radius: 20px;
+    /* height: 20px; */
+    /* background-color: white; */
+}
+.welcome{
+    /* border: 2px solid orange; */
+    display: inline;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 550;
+    font-size: 32px;
+    color: rgb(1, 10, 19);
+}
+.profile{
+    display: inline;
+    /* border: 2px solid plum; */
+    display: flex;
+    align-items: center;
+}
+.icon-notifi{
+    color:rgb(10, 25, 112);
+    font-size: 26px;
+    margin-right:23px;
+}
+.prof{
+    /* border:1px solid blue; */
+    border-radius: 50%;
+    height: 50px;
+    width:  50px;
+    margin-right:30px;
+    padding :5px;
+}
+.body{
+    /* border: 2px solid rgb(122, 32, 32); */
+    display: flex;
+    flex-direction: column;
+    height: 88%;
+    padding: 10px;
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+/* -----------------------attandance module  ----------------------------  */
+.topic{
+    /* border: 2px solid red; */
+    padding: 2px;
+    margin-top: 10px;
+    margin-bottom: 18px;
+    display: flex;
+    justify-content: space-around;
+    box-sizing: border-box;
+    align-items: center;
+}
+.tp-1{
+    /* border: 2px solid red; */
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size:22px;
+    color: #010c2c;
+}
+.date-btn{
+    /* border: 1px solid rgb(4, 20, 43); */
+    width: 30px;
+    height: 100%;
+    padding-top: 2px;
+    text-align: center;
+    border: none;
+    margin-left: 14px;
+}
+.date-search{
+    font-size: 22px;
+}
+.input-date{
+    border: 1px solid rgba(77, 77, 77, 0.384);
+    padding: 1px 8px 1px 8px;
+    border-radius: 8px;
+    font-size: 15px;
+}

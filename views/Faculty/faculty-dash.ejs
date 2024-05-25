@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/facultycss/faculty-style.css">
+    <link rel="icon" href="/css/icon.png" type="image/x-icon">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <div class="mainblock">
+        <div class="mb-1">
+            <div class="menu">
+                <div class="image">
+                  <img src="/css/facultycss/university.jpg" alt="loading" class="uni-img">
+                </div>
+            <p class="user">Faculty-info</p>
+            <div class="collepse">
+                <div class="fac-detail1"><span class="info" id="info-id">Tony Stark</span></div>
+                <div class="fac-detail"><span class="info">University Id: </span><span class="info">ADHJD41222019</span></div>
+                <div class="fac-detail"><span class="info">Department : </span><span class="info">BCA</span></div>
+                <div class="fac-detail"><span class="info">Course : </span><span class="info">Cloud computing</span></div>
+                <div class="fac-detail"><span class="info">Tenure  :</span><span class="info">4 month</span></div>
+                <div class="fac-detail"><span class="info"></span><span class="info"></span></div>
+            </div>
+            <!-- ---------------- -->
+            <div class="signout">
+                <form action="/logout" method="post">
+                    <button class="btn-sign">Log Out</button>
+                </form>
+            </div>
+            </div>
+        </div>
+  <!-- ---------------------------moudle 2 -----------------------------------       -->
+        <div class="mb-2">
+            <nav class="navigate">
+                <h1 class="welcome">Welcome Faculty !</h1>
+                <div class="profile">
+                    <i class='bx bx-search-alt-2 icon-notifi'></i>
+                    <i class='bx bxs-bell bx-flip-horizontal icon-notifi' ></i>
+                    <!-- <img src="photo.png" alt="loading" class="prof"> -->
+                </div>
+            </nav>
+            <div class="body">
+                <!-- -----------------------------  -->
+                <div class="chats">
+                    <div class="title"  id="class-of">
+                    <span class="comment">Class for the day</span><span class="comment"><img width="12" height="12" src="https://img.icons8.com/emoji/48/green-circle-emoji.png" alt="green-circle-emoji"/> Today's status</span>
+                    </div>
+                    <% allChats.forEach(function(chat) {%>    
+                        <div class="post-1">
+                            <div class="title">
+                                <span class="p-t-1"><img width="23" height="23" src="https://img.icons8.com/ultraviolet/40/test-account.png" alt="test-account"/> <%= chat.author %></span>
+                                <span class="p-t-1"><i><%= chat.createdat %></i>&#160</span>
+                                <span class="p-t-1"><i><%= chat.createtime %></i>&#160</span>
+                            </div>
+                            <form class="dlt" form method="POST" action="/Dashboard/<%= chat._id %>?_method=DELETE">
+                                <div class="content"><%= chat.chat %></div>
+                                <button class="dlt-btn" type="submit"><img width="28" height="28" src="https://img.icons8.com/parakeet/48/delete.png" alt="delete" class="dlt-icon"/></button>
+                            </form>
+                        </div>
+                    <% }); %>
+                    <div class="post-txt" >
+                        <form action="/Dashboard" method="post">
+                            <textarea name="chating[mkpost]" id="" cols="59" rows="2" class="mkpost" required></textarea>
+                            <button value="submit" class="btn-post"> Post </button>
+                        </form>
+                    </div>
+                </div>
+                <!-- ------------------ ---------  -->
+                <div class="attendence-block">
+                    <div class="block-1">
+                        <!-- <form action="/attendence" method="get"> -->
+                        <button class="in-block1" id="attendanceButton">
+                            <img src="/css/facultycss/mark-attandance.png" alt="loading" class="mark-attandance">
+                            <span class="mark-att">Mark Attendance</span>
+                        </button>
+                        <!-- </form> -->
+                        <button class="in-block2">
+                            <img src="/css/facultycss/grade.jpg" alt="loading" class="grade">
+                            <span class="mark-att">Mark Grade</span>
+                        </button>
+                    </div>
+                    <div class="block-1">
+                        <button class="in-block1">
+                            <img src="/css/facultycss/syllabus1.png" alt="loading" class="mark-attandance">
+                            <span class="mark-att">Upload Syllabus</span>
+                        </button>
+                        <button class="in-block2" id="studentlist">
+                            <img src="/css/facultycss/student.jpg" alt="loading" class="grade">
+                            <span class="mark-att">Student list</span>
+                        </button>
+                    </div>
+                    <div class="block-1">
+                        <button class="in-block1">
+                            <img src="/css/facultycss/timetable.png" alt="loading" class="mark-attandance">
+                            <span class="mark-att">Upload Timetable</span>
+                        </button>
+                        <button class="in-block2" id="fees">
+                            <img src="/css/facultycss/fees.jpg" alt="loading" class="grade">
+                            <span class="mark-att">Fees</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- ----------------------- --  -->
+                <div class="n-u">
+                    <span class="comment2">News /Updates </span>
+                    <!-- ---------------  -->
+                    <div class="slidebar" id="slide-b">
+                        <img src="/css/facultycss/news-1.png" alt="loading"class="card-img" id="card-img-1">
+                        <img src="/css/facultycss/news-2.png" alt="loading"class="card-img" id="card-img-2">
+                        <img src="/css/facultycss/news-3.png" alt="loading"class="card-img" id="card-img-3">
+                        <!-- ------here update---- -->
+                        <div class="back"><div class="arrow2" ><i class='bx bx-chevron-left arr'></i></div></div>
+                        <div class="next"><div class="arrow1"><i class='bx bx-chevron-right arr'></i></div></div>
+                    </div>
+                    <!-- ------------  -->
+                    <div class="news">
+                        <div class="scroll" onmouseover="pauseAnimation()" onmouseout="resumeAnimation()">
+                            <div class="content-news"><span><img width="24" height="24" src="https://img.icons8.com/material-two-tone/24/pin.png" alt="pin"/></span><a href="#" class="newslink">Delhi University(DU) commences Fresh-Admission for July 2024 Session for ODL & Online mode Programmes</a></div>
+
+                            <div class="content-news"><span><img width="24" height="24" src="https://img.icons8.com/material-two-tone/24/pin.png" alt="pin"/></span><a href="#" class="newslink" >2nd Semi-final Badminton match of Men in Doubles category
+                                Online Training programme on NEP Orientation and Sensitization</a></div>
+
+                            <div class="content-news"><span><img width="24" height="24" src="https://img.icons8.com/material-two-tone/24/pin.png" alt="pin"/></span><a href="#" class="newslink"> Circular: With approval of Competent authority Vaccination of private agencies would not be reimbursed.</a></div>
+
+                            <div class="content-news"><span><img width="24" height="24" src="https://img.icons8.com/material-two-tone/24/pin.png" alt="pin"/></span><a href="#" class="newslink">Notification regarding closure of Gate No.1 of the University on 08.05.2024</a></div>
+
+                            <div class="content-news"><span><img width="24" height="24" src="https://img.icons8.com/material-two-tone/24/pin.png" alt="pin"/></span><a href="#" class="newslink">Alert ! dated 02.04.2024 regarding filling up Centenary Chance Special Exams.</a></div>
+
+                            <div class="content-news"><span><img width="24" height="24" src="https://img.icons8.com/material-two-tone/24/pin.png" alt="pin"/></span><a href="#" class="newslink">Last date for submission of assignment has been extended upto 30th April</a></div>
+
+                            <div class="content-news"><span><img width="24" height="24" src="https://img.icons8.com/material-two-tone/24/pin.png" alt="pin"/></span ><a href="#" class="newslink">Applications for 76th House Allotment Committee 2024</a></div>
+
+                            <div class="content-news"><span><img width="24" height="24" src="https://img.icons8.com/material-two-tone/24/pin.png" alt="pin"/></span><a href="#" class="newslink">Notification of Election Duty of University staff</a></div>
+                        </div>
+                    </div>
+                    <!-- <form action="/news" method="post" class="newform">
+                        <textarea name="newstxt[addnewstxt]" id="" cols="6" rows="6" class="newstxtarea" required></textarea>
+                        <button class="newsbtn" type="submit"><i class='bx bx-plus' ></i></button>
+                    </form> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/css/facultycss/faculty-script.js"></script>
+</body>
+</html>

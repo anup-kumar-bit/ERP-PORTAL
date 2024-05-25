@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attendance List</title>
+  <link rel="stylesheet" href="/css/showlist/attlist.css">
+  <link rel="icon" href="/css/icon.png" type="image/x-icon">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="mainblock">
+    <div class="mb-1">
+      <div class="menu">
+        <div class="image">
+          <img src="/css/showlist/university.jpg" alt="loading" class="uni-img">
+        </div>
+        <p class="user">Faculty-info</p>
+        <div class="collepse">
+          <div class="fac-detail1"><span class="info" id="info-id">Tony Stark</span></div>
+          <div class="fac-detail"><span class="info">University Id: </span><span class="info">ADHJD41222019</span></div>
+          <div class="fac-detail"><span class="info">Department : </span><span class="info">BCA</span></div>
+          <div class="fac-detail"><span class="info">Course : </span><span class="info">Cloud computing</span></div>
+          <div class="fac-detail"><span class="info">Tenure :</span><span class="info">4 month</span></div>
+          <div class="fac-detail"><span class="info"></span><span class="info"></span></div>
+        </div>
+        <!-- ---------------- -->
+        <div class="signout">
+          <button class="btn-sign">Log Out</button>
+        </div>
+      </div>
+    </div>
+    <!-- ---------------------------moudle 2 -----------------------------------       -->
+    <div class="mb-2">
+      <nav class="navigate">
+        <h1 class="welcome">Welcome Faculty !</h1>
+        <div class="profile">
+          <i class='bx bx-search-alt-2 icon-notifi'></i>
+          <i class='bx bxs-bell bx-flip-horizontal icon-notifi'></i>
+          <!-- <img src="photo.png" alt="loading" class="prof"> -->
+        </div>
+      </nav>
+      <div class="body">
+        <!-- -----------------------------  -->
+        <div class="topic">
+          <span class="tp-1">Student's attandance list</span>
+        </div>
+        <!-- --------   -->
+        <div class="table-div">
+          <% if (msg) { %>
+            <div class="pop-msg">
+                <div class="duplicacy" role="alert">
+                    <%= msg %>
+                </div>
+                <button class="msg-button"><i class='bx bx-x'></i></button>
+              </div>
+              <% } %>
+          <!-- -----------------------------  -->
+          <div class="date">
+            <form action="/attendance/list" method="post">
+              <input type="date" class="input-date" name="date" required>
+              <button type="submit" class="msg-search">
+                <i class='bx bx-search-alt' style='color:#0627b9'  ></i>
+              </button>
+            </form>
+          </div>
+          <!-- ----------------------------  -->
+          <form action="/attendance" method="post" id="myForm">
+            <table class="table table-striped ">
+              <thead>
+                <tr>
+                  <th scope="col">Roll no.</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Course</th>
+                  <th scope="col">Duration</th>
+                  <th scope="col">Theory / Practical</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">total %</th>
+                </tr>
+              </thead>
+              <tbody id="mytable">
+                <% if(data!==null){ %>
+                  <% for (dt in data) { %>
+                <tr class="work-tr">
+                  <th scope="row" class="td-c">412220<%= Number(dt) + 1 %></th>
+                  <!-- ----------  -->
+                  <td class="td-c"><input type="text" value="<%= data[dt].name %>" name="student1[user]" readonly class="inp"></td> 
+                  <!-- -------  -->
+                  <td class="td-c"><input type="text" value="<%= data[dt].course %>" name="student1[Course]" readonly class="inp"></td>
+                  <!-- ---------  -->
+                  <td class="td-c">
+                    <input type="text" value="<%= data[dt].dur %>" name="student1[duration]" readonly class="inp c-dur">
+                  </td>
+                  <!-- ----------  -->
+                  <% if(data[dt].p_or_t == 'Thoery') { %>
+                    <td class="td-c">
+                      <button type="button" class="btn btn-primary">Theory</button>
+                    </td>
+                <% } else { %>
+                    <td class="td-c">
+                      <button type="button" class="btn btn-primary">Practical</button>
+                    </td>
+                <% } %>
+                
+                  <!-- --------- -->
+                <%  if(tdate){ %>
+                    <td class="td-c "><input type="text" value="<%= tdate.arrayOfDates %>" name="student1[date]" readonly class="inp date-value-student"></td>
+                <%  } %>
+                  <!-- -------  -->
+                  <% if(data[dt].status == 'Present') { %>
+                    <td class="td-c">
+                      <button type="button" class="btn btn-success">Present</button>
+                    </td>
+                <% } else { %>
+                    <td class="td-c">
+                      <button type="button" class="btn btn-danger">Absent</button>
+                    </td>
+                <% } %>
+                <!-- - ------------------------------ ----------------  -->
+                <% if(percentage) { %>
+                  <% for(pr in percentage) { %>
+                    <% if(percentage[pr].id==data[dt].attandencepercentage) { %>
+                    <td class="td-c">
+                      <button type="button" class="btn btn-light pbtn" value="<%= percentage[pr].attandencepercentage %>"><%= percentage[pr].attandencepercentage %> %</button>
+                    </td>
+                  <% } %>
+                  <% } %>
+                <% } %>
+                
+<!-- ------------------------------------------------------------------------------------------------------------  -->
+                </tr>
+                <% } %>
+                <% } %>
+                <!-- ----------------------user 2 --------------- -->
+              </tbody>
+            </table>
+          </form>
+        </div>
+        <%- include('../common.ejs') %>
+      </div>
+    </div>
+  </div>
+  <script src="/css/showlist/attlist.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>

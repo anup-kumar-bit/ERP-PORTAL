@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="main">
+        <div class="img"><img src="use.jpg" alt="loading" class="in-img"></div>
+        <div class="login-block">
+            <div class="title-log">login</div>
+            <div class="content">
+                <form action="#" >
+                    <div class="title">
+                        <label for="username"  class="topic">Email ID : </label>
+                        <input type="email" class="inputs" required>
+                    </div>
+                    <div class="title">
+                        <label for="username" class="topic">Password : </label>
+                        <input type="password" class="inputs" id="show" required>
+                        <label class="for-pass" for="showPasswordCheckbox" for="showPasswordCheckbox-1">
+                            <input type="checkbox" id="showPasswordCheckbox" required>
+                            <span  class="password" id="showPasswordCheckbox-1">Show Password</span> 
+                        </label>                   
+                    </div>
+                    <div class="title">
+                        <label for="username" class="topic">Campus : </label>
+                        <select name="campus" id="" class="inputs-selection">
+                            <option value="north campus">North campus</option>
+                            <option value="south campus">South campus</option>
+                            <option value="off campus">Off campus</option>
+                        </select>
+                    </div>
+                    <div class="title-btn">
+                        <button class="btn">login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>

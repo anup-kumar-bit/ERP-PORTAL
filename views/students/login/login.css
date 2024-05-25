@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+*{
+    margin:0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.main{
+    /* border: 2px solid black; */
+    background-image: url(background.jpg);
+    background-repeat:no-repeat;
+    background-size: 100% 100%;
+    width: 99.8vw;
+    height: 99.4vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-block{
+    /* border: 2px solid black; */
+    width: 27%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px rgba(1, 10, 19, 0.315),
+    -1px -1px 3px rgba(1, 10, 19, 0.308);
+}
+.title-log{
+    /* border: 2px solid red; */
+    font-family: "Kanit", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-bottom: 10px;
+    font-size: 23px;
+    text-align: center;
+}
+.title{
+    width: 100%;
+    position: relative;
+}
+.topic{
+    display: block;
+    font-family: "Kanit", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: large;
+}
+.inputs{
+    width: 100%;
+    padding: 7px;
+    font-family: "Kanit", sans-serif;
+    opacity: 94%;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid rgb(92, 92, 92);
+}
+.inputs-selection{
+    width: 100%;
+    padding: 3px;
+    font-family: "Kanit", sans-serif;
+    opacity: 95%;
+    font-weight: 400;
+    font-style: normal;
+    height: 40px;
+    border-radius: 6px;
+    font-size:15px;
+}
+.title-btn{
+    /* border: 2px solid rebeccapurple; */
+    margin-top: 10px;
+}
+#show{
+    margin-bottom: 8px;
+}
+.password{
+    font-family: "Kanit", sans-serif;
+}
+.btn{
+    color: rgb(255, 255, 255);
+    border-radius: 4px;
+    height: 30px;
+    width: 100px;
+    font-size:15px;
+    font-family: "Kanit", sans-serif;
+    background-color: rgb(1, 83, 206);
+    cursor: pointer;
+    border: none;
+}
+.btn:active{
+    background-color: rgb(19, 108, 243);
+}
+.img{
+    /* border: 2px solid black; */
+    width: 28%;
+    height: 48%;
+    padding: 20px;
+    border-radius: 10px;
+}
+.in-img{
+    width: 100%;
+    height: 100%;
+}
+
+
+@media (min-height:400px) and (max-height:650px) {           /*100%*/
+    .title-log{
+        margin-bottom: 7px;
+        font-size: 20px;
+    }
+    .login-block{
+        width: 27%;
+    }
+    .topic{
+        font-size:15px;
+    }
+    .inputs{
+        padding: 4px;
+        opacity: 80%;
+        font-size: 12px;
+        border-radius: 6px;
+        border: 1px solid rgb(92, 92, 92);
+    }
+    .inputs-selection{
+        opacity: 95%;
+        height: 30px;
+        font-size:12px;
+    }
+    .password{
+        font-size: 15px;
+    }
+}
+@media (min-height:650px) and (max-height:719px) {             /*90%*/
+    .title-log{
+        margin-bottom: 7px;
+        font-size: 22px;
+    }
+    .login-block{
+        width: 27%;
+    }
+    .topic{
+        font-size:15px;
+    }
+    .inputs{
+        padding: 6px;
+        opacity: 80%;
+        font-size: 14px;
+        border-radius: 6px;
+        border: 1px solid rgb(92, 92, 92);
+    }
+    .inputs-selection{
+        opacity: 95%;
+        height: 30px;
+        font-size:12px;
+    }
+}
+/* 100% */
+@media (min-width:900px) and (max-width:1110px){
+    .login-block{
+        width: 36%;
+    }
+    .img{
+        display: none;
+    }
+}
+@media (min-width:550px) and (max-width:900px){
+    .login-block{
+        width: 48%;
+    }
+    .img{
+        display: none;
+    }
+}
+@media (min-width:200px) and (max-width:550px){
+    .login-block{
+        width: 83%;
+    }
+    .img{
+        display: none;
+    }
+}

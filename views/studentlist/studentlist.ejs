@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student List</title>
+  <link rel="stylesheet" href="/css/studentlist/studentlist.css">
+  <link rel="icon" href="/css/icon.png" type="image/x-icon">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="mainblock">
+    <div class="mb-1">
+      <div class="menu">
+        <div class="image">
+          <img src="/css/studentlist/university.jpg" alt="loading" class="uni-img">
+        </div>
+        <p class="user">Faculty-info</p>
+        <div class="collepse">
+          <div class="fac-detail1"><span class="info" id="info-id">Tony Stark</span></div>
+          <div class="fac-detail"><span class="info">University Id: </span><span class="info">ADHJD41222019</span></div>
+          <div class="fac-detail"><span class="info">Department : </span><span class="info">BCA</span></div>
+          <div class="fac-detail"><span class="info">Course : </span><span class="info">Cloud computing</span></div>
+          <div class="fac-detail"><span class="info">Tenure :</span><span class="info">4 month</span></div>
+          <div class="fac-detail"><span class="info"></span><span class="info"></span></div>
+        </div>
+        <!-- ---------------- -->
+        <div class="signout">
+          <button class="btn-sign">Log Out</button>
+        </div>
+      </div>
+    </div>
+    <!-- ---------------------------moudle 2 -----------------------------------       -->
+    <div class="mb-2">
+      <nav class="navigate">
+        <h1 class="welcome">Welcome Faculty !</h1>
+        <div class="profile">
+          <i class='bx bx-search-alt-2 icon-notifi'></i>
+          <i class='bx bxs-bell bx-flip-horizontal icon-notifi'></i>
+          <!-- <img src="photo.png" alt="loading" class="prof"> -->
+        </div>
+      </nav>
+      <main class="body">
+        <!-- -----------------------------  -->
+        <div class="topic">
+          <span class="tp-1">Student's list</span>
+        </div>
+        <!-- --------   -->
+        <div class="student-div">
+          <% if (msg) { %>
+            <div class="pop-msg">
+              <div class="duplicacy" role="alert">
+                <%= msg %>
+              </div>
+              <button class="msg-button"><i class='bx bx-x'></i></button>
+            </div>
+            <% } %>
+              <div class="stlist" id="stlist1">
+                <table class="table table-striped ">
+                  <thead>
+                    <tr>
+                      <th scope="col">Roll no.</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Course</th>
+                      <th scope="col">Section</th>
+                      <th scope="col">Admission Year</th>
+                      <th scope="col">Phone Number</th>
+                    </tr>
+                  </thead>
+                  <tbody id="mytable">
+                    <% if(allstudents) { %>
+                      <% allstudents.forEach((element)=>{ %>
+                        <form class="dlt" form method="POST" action="/studentlist/<%= element._id %>?_method=DELETE">
+                          <tr class="work-tr">
+                            <th scope="row" class="td-c">
+                              <%= element.rollno %>
+                            </th>
+                            <!-- ----------  -->
+                            <td class="td-c">
+                              <%= element.name %>
+                            </td>
+                            <!-- -------  -->
+                            <td class="td-c">
+                              <%= element.course %>
+                            </td>
+                            <!-- ---------  -->
+                            <td class="td-c">
+                              <%= element.section %>
+                            </td>
+                            <!-- ----------  -->
+                            <td class="td-c">
+                              <%= element.year %>
+                            </td>
+                            <td class="td-c ">
+                              <%= element.phone %>
+                            </td>
+                            <td class="td-c "><button class="dlt-btn" type="submit"><img width="28" height="28"
+                                  src="https://img.icons8.com/parakeet/48/delete.png" alt="delete" class="delete-icon" /></button>
+                            </td>
+                          </tr>
+                        </form>
+                        <% }) %>
+                          <% } %>
+                  </tbody>
+                </table>
+              </div>
+              <!-- ------------------------  -->
+              <div class="stlist" id="stlist2">
+                <div class="addstudent">
+                  <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/student-male--v1.png"
+                    alt="student-male--v1" class="std-icon" />
+                  <span>Add Student</span>
+                  <button class="addstd"><img width="25" height="25"
+                      src="https://img.icons8.com/windows/32/plus-math.png" alt="plus-math" class="add-btn"/></button>
+                </div>
+                <!-- ---------------------------------------------------------------------------------------------------------------- -->
+                <form action="/studentlist" class="form-std" method="post">
+                  <input type="text" name="Addstudent[Name]" placeholder="Name" class="input-form" id="name">
+                  <input type="text" name="Addstudent[Roll]" placeholder="Roll no" class="input-form" id="roll">
+                  <input type="text" name="Addstudent[Course]" placeholder="Course" class="input-form" id="course">
+                  <input type="text" name="Addstudent[Section]" placeholder="Section" class="input-form" id="section">
+                  <input type="text" name=Addstudent[Year] placeholder="Admission year" class="input-form" id="year">
+                  <input type="text" name=Addstudent[Phone] placeholder="Phone Number" class="input-form" id="phone">
+                  <button type="submit" class="input-form" id="input-form-btn">Add</button>
+                </form>
+                <!-- ---------------------------------------------------------------------------------------------------------------- -->
+              </div>
+        </div>
+        <%- include('../common.ejs') %>
+      </main>
+    </div>
+  </div>
+  <script src="/css/studentlist/studentlist.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
